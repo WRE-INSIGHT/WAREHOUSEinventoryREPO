@@ -1,2 +1,19 @@
 C:\Users\kmdim\Documents\Visual Studio 2015\Projects\warehouseINVENTORY\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe.config
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe.config
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.pdb
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.xml
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\AdvancedDataGridView.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\MetroFramework.Design.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\MetroFramework.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\Transitions.dll
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbprojResolveAssemblyReference.cache
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.LoginFrm.resources
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.Resources.resources
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbproj.GenerateResource.Cache
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.exe
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.xml
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.pdb
