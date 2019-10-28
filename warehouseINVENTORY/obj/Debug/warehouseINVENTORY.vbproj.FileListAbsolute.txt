@@ -10,10 +10,12 @@ C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\De
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\ThoughtWorks.QRCode.dll
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\Transitions.dll
-C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbprojResolveAssemblyReference.cache
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.LoginFrm.resources
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.Resources.resources
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbproj.GenerateResource.Cache
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.exe
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.xml
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.pdb
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbprojResolveAssemblyReference.cache
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.MainFrm.resources
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.WarehouseInvFrm.resources

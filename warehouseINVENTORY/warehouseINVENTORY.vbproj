@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_full_warehouse.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdvancedDataGridView">
       <HintPath>..\packages\DG.AdvancedDataGridView.1.1.23503.5\lib\net40\AdvancedDataGridView.dll</HintPath>
@@ -94,6 +97,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalMod.vb" />
+    <Compile Include="Inventory\Forms\WarehouseInvFrm.Designer.vb">
+      <DependentUpon>WarehouseInvFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Forms\WarehouseInvFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\Forms\LoginFrm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +112,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login\Modules\LoginMod.vb" />
+    <Compile Include="Main\Forms\MainFrm.Designer.vb">
+      <DependentUpon>MainFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Forms\MainFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -119,8 +135,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Inventory\Forms\WarehouseInvFrm.resx">
+      <DependentUpon>WarehouseInvFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\Forms\LoginFrm.resx">
       <DependentUpon>LoginFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Forms\MainFrm.resx">
+      <DependentUpon>MainFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -146,6 +168,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loading_image2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8_full_warehouse.ico" />
+    <None Include="Resources\warehouse_1_48px.png" />
+    <None Include="Resources\user_male_circle_48px.png" />
+    <None Include="Resources\shutdown_48px.png" />
+    <None Include="Resources\icons8_full_warehouse_64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,6 +22,7 @@ Partial Class LoginFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginFrm))
         Me.PasswordTbox = New MetroFramework.Controls.MetroTextBox()
         Me.UserNameTbox = New MetroFramework.Controls.MetroTextBox()
         Me.PasswordLbl = New MetroFramework.Controls.MetroLabel()
@@ -177,6 +178,7 @@ Partial Class LoginFrm
         Me.Controls.Add(Me.UserNameLbl)
         Me.Controls.Add(Me.LoginBtn)
         Me.Controls.Add(Me.Loading_PB)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "LoginFrm"

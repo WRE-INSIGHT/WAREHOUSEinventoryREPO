@@ -22,12 +22,32 @@ warehouseINVENTORY
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:warehouseINVENTORY.My.Resources.Resources.icons8_full_warehouse_64">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:warehouseINVENTORY.My.Resources.Resources.K_M_logo_official_2018_1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:warehouseINVENTORY.My.Resources.Resources.loading_image2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:warehouseINVENTORY.My.Resources.Resources.shutdown_48px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:warehouseINVENTORY.My.Resources.Resources.user_male_circle_48px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:warehouseINVENTORY.My.Resources.Resources.warehouse_1_48px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
