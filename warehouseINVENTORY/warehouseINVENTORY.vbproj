@@ -104,6 +104,13 @@
     <Compile Include="Inventory\Forms\WarehouseInvFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Inventory\Forms\WarehouseItemFrm.Designer.vb">
+      <DependentUpon>WarehouseItemFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Forms\WarehouseItemFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\Modules\WarehouseInvMod.vb" />
     <Compile Include="Login\Forms\LoginFrm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +145,9 @@
     <EmbeddedResource Include="Inventory\Forms\WarehouseInvFrm.resx">
       <DependentUpon>WarehouseInvFrm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\Forms\WarehouseItemFrm.resx">
+      <DependentUpon>WarehouseItemFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\Forms\LoginFrm.resx">
       <DependentUpon>LoginFrm.vb</DependentUpon>
     </EmbeddedResource>
@@ -146,9 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_full_warehouse.ico" />
+    <None Include="Resources\icons8_warehouse_1.ico" />
+    <None Include="Resources\stocks_48px.png" />
+    <None Include="Resources\edit_48px.png" />
+    <None Include="Resources\delete_sign_48px.png" />
+    <None Include="Resources\add_48px.png" />
+    <None Include="Resources\checkmark_48px.png" />
     <None Include="Resources\warehouse_1_48px.png" />
     <None Include="Resources\user_male_circle_48px.png" />
     <None Include="Resources\shutdown_48px.png" />

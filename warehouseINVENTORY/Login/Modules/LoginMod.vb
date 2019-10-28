@@ -1,7 +1,4 @@
-﻿Imports System.IO
-Imports System.Text
-Imports System.Data.SqlClient
-Imports System.Security.Cryptography
+﻿Imports System.Data.SqlClient
 Module LoginMod
     Public sqlConnection As New SqlConnection
     Public sqlCommand As SqlCommand

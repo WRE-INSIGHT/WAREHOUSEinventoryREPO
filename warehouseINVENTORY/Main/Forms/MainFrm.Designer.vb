@@ -24,30 +24,39 @@ Partial Class MainFrm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainFrm))
         Me.Main_MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.SystemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InventoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CheckToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Main_MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'Main_MenuStrip
         '
         Me.Main_MenuStrip.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Main_MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InventoryToolStripMenuItem, Me.AccountsToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.Main_MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemToolStripMenuItem, Me.AccountsToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.Main_MenuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.Main_MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.Main_MenuStrip.Name = "Main_MenuStrip"
+        Me.Main_MenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.Main_MenuStrip.Size = New System.Drawing.Size(784, 24)
         Me.Main_MenuStrip.TabIndex = 0
         Me.Main_MenuStrip.Text = "MenuStrip1"
         '
+        'SystemToolStripMenuItem
+        '
+        Me.SystemToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InventoryToolStripMenuItem})
+        Me.SystemToolStripMenuItem.Name = "SystemToolStripMenuItem"
+        Me.SystemToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.SystemToolStripMenuItem.Text = "System"
+        '
         'InventoryToolStripMenuItem
         '
-        Me.InventoryToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckToolStripMenuItem})
-        Me.InventoryToolStripMenuItem.Image = Global.warehouseINVENTORY.My.Resources.Resources.warehouse_1_48px
+        Me.InventoryToolStripMenuItem.CheckOnClick = True
+        Me.InventoryToolStripMenuItem.Image = CType(resources.GetObject("InventoryToolStripMenuItem.Image"), System.Drawing.Image)
         Me.InventoryToolStripMenuItem.Name = "InventoryToolStripMenuItem"
-        Me.InventoryToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
-        Me.InventoryToolStripMenuItem.Text = "Inventory"
+        Me.InventoryToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.InventoryToolStripMenuItem.Text = "Warehouse Inventory"
         '
         'AccountsToolStripMenuItem
         '
@@ -63,12 +72,6 @@ Partial Class MainFrm
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'CheckToolStripMenuItem
-        '
-        Me.CheckToolStripMenuItem.Name = "CheckToolStripMenuItem"
-        Me.CheckToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CheckToolStripMenuItem.Text = "Check"
-        '
         'MainFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -78,6 +81,7 @@ Partial Class MainFrm
         Me.Controls.Add(Me.Main_MenuStrip)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.Main_MenuStrip
         Me.Name = "MainFrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -90,8 +94,8 @@ Partial Class MainFrm
     End Sub
 
     Friend WithEvents Main_MenuStrip As MenuStrip
-    Friend WithEvents InventoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SystemToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AccountsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CheckToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InventoryToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -7,9 +7,18 @@
 
     End Sub
 
-    Private Sub CheckToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckToolStripMenuItem.Click
-        Dim inv As Form = WarehouseInvFrm
-        inv.MdiParent = Me
-        inv.Show()
+    Private Sub InventoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventoryToolStripMenuItem.Click
+        If InventoryToolStripMenuItem.Checked = True Then
+            Dim inv As Form = WarehouseInvFrm
+            inv.MdiParent = Me
+            inv.Show()
+        Else
+            WarehouseInvFrm.Close()
+        End If
+
+    End Sub
+
+    Private Sub MainFrm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        LoginFrm.Close()
     End Sub
 End Class

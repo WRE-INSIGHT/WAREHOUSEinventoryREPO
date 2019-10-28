@@ -147,6 +147,20 @@
         9X5iSkHBq/Mjn0ebz6zNyv4/P7OuYQ2rHn19fwOOCdVowYPlvAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="InventoryToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHRSURBVGhD7ZVNSgNBFIQDunDpCfQcupqVniCLZMIwtxCPkUuI+yy9Qk4g6h1c+/uelNA09bBi
+        x3SE/uBbqFU1D53gpNFoNELGcTxy8eX/YRiGk77vl+YzXPr38OP9ZTabndmxK/PN/Mh8NVeeQXw/6Lru
+        cLFYDHbcOjn2J9fe8S5mdo+928fz+fzKjnnKjtvER9/wLcz+PfbAU3vw9/vNjvqNX58T38Zjto/9yc/t
+        IdH7vS19e+XPwmPLsd/KpY3eJQ/Zhe+mP/MCZ2yOf8Bs4BaDNb2ZTqcHOEvHitfZUDX9g46zdOw9fGBj
+        lbzHWTpW8n88bKyGLzhLh4xUFWfpsBFF1ENYRxF1HTaiiHoI6yiirsNGFFEPYR1F1HXYiCLqIayjiLoO
+        G1FEPYR1FFHXYSOKqIewjiLqOmxEEfUQ1lFEXYeNKKIewjqKqOuwkZriLB02UlOcpcNGaoqzdNhITXGW
+        DhtJRSykNJ+LmA4bSUUspDSfi5gOG0lFLKQ0n4uYDhtJRSykNJ+LmA4bSUUspDSfi5gOG0lFLKQ0n4uY
+        DhtJRSykNJ+LmA4bSUUspDSfi5gOG6kpztJhIzXFWTpspKY4S4eN1BRnNRqNxl4xmXwCsI3hCJYnHPAA
+        AAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>43</value>
   </metadata>

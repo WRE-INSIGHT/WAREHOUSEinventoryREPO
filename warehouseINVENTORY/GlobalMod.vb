@@ -1,9 +1,15 @@
-﻿Imports System.IO
+﻿Imports System.Data.SqlClient
+Imports System.IO
+Imports ComponentFactory.Krypton.Toolkit
 Imports MetroFramework
 
 Module GlobalMod
     Public Log_File As StreamWriter
     Public QuestionPromptAnswer As Integer
+
+    Public sqlDataAdapter As SqlDataAdapter
+    Public sqlDataSet As New DataSet
+    Public sqlBindingSource As BindingSource
 
     Public Sub KMDIPrompts(ByVal FormName As Form,
                            ByVal PromptMode As String,
@@ -99,6 +105,80 @@ Module GlobalMod
                         MetroMessageBox.Show(FormName, "Developers currently working on this. Be patient. Thank You!", "System Maintenance", MessageBoxButtons.OK, MessageBoxIcon.None)
                 End Select
         End Select
+    End Sub
+    Public Sub rowpostpaint(ByVal sender As Object, ByVal e As DataGridViewRowPostPaintEventArgs)
+        Dim grid As DataGridView = DirectCast(sender, DataGridView)
+        e.PaintHeader(DataGridViewPaintParts.Background)
+        Dim rowIdx As String = (e.RowIndex + 1).ToString()
+        Dim rowFont As New Font("Microsoft Sans Serif", 10.0!,
+            FontStyle.Regular,
+            GraphicsUnit.Point, CType(0, Byte))
+
+        Dim centerFormat = New StringFormat()
+        centerFormat.Alignment = StringAlignment.Far
+        centerFormat.LineAlignment = StringAlignment.Near
+
+        Dim headerBounds As Rectangle = New Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height)
+
+        e.Graphics.DrawString(rowIdx, rowFont, SystemBrushes.ControlText, headerBounds, centerFormat)
+    End Sub
+    Public Sub DGV_Properties(ByVal DGV As KryptonDataGridView,
+                              ByVal dgvName As String)
+        With DGV
+            .Name = dgvName
+            .Dock = DockStyle.Fill
+            .Select()
+            .DefaultCellStyle.BackColor = Color.White
+            .RowsDefaultCellStyle.Font = New Font("Segoe UI", 12.0!, FontStyle.Regular)
+            .AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke
+            .AllowUserToOrderColumns = True
+            .AllowUserToResizeColumns = True
+            .AllowUserToResizeRows = True
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            '.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+            '.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+            '.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells)
+            .CausesValidation = True
+            .ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithAutoHeaderText
+            .PaletteMode = PaletteMode.Office2010Silver
+            .ColumnHeadersHeight = 30
+            .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+            .ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+            .RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+            With .GridStyles
+                .Style = DataGridViewStyle.List
+                .StyleColumn = DataGridViewStyle.List
+                .StyleDataCells = DataGridViewStyle.List
+                .StyleRow = DataGridViewStyle.List
+            End With
+            .HideOuterBorders = True
+            .ReadOnly = True
+            .ScrollBars = ScrollBars.Both
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            .ShowCellErrors = True
+            .ShowCellToolTips = True
+            .ShowRowErrors = True
+            .StandardTab = False
+            .MultiSelect = True
+            With .StateCommon
+                .Background.Color1 = Color.White
+                .Background.Color2 = Color.Transparent
+                .DataCell.Content.Color1 = Color.Black
+                .DataCell.Content.Color2 = Color.Transparent
+                .DataCell.Content.ColorAngle = -1
+                .DataCell.Content.Font = New Font("Segoe UI", 9.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
+                .HeaderColumn.Back.Color1 = Color.FromArgb(11, 19, 36)
+                .HeaderColumn.Back.Color2 = Color.FromArgb(11, 19, 36)
+                .HeaderColumn.Back.ColorAngle = -1
+                .HeaderColumn.Back.ColorStyle = PaletteColorStyle.Dashed
+                .HeaderColumn.Border.Width = 0
+                .HeaderColumn.Content.Color1 = Color.White
+                .HeaderColumn.Content.Color2 = Color.Transparent
+                .HeaderColumn.Content.Font = New Font("Segoe UI", 11.25!, FontStyle.Bold, GraphicsUnit.Point, CType(0, Byte))
+                .HeaderColumn.Content.Hint = PaletteTextHint.AntiAlias
+            End With
+        End With
     End Sub
 
 End Module
