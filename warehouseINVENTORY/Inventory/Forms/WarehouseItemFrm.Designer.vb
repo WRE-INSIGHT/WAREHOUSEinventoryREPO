@@ -56,6 +56,7 @@ Partial Class WarehouseItemFrm
         Me.Controls.Add(Me.Loading_PB)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "WarehouseItemFrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Item Info"
         CType(Me.Loading_PB, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

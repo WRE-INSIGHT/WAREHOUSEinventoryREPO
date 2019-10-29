@@ -7,17 +7,29 @@ Public Class WarehouseInvFrm
     Private BGW As BackgroundWorker = New BackgroundWorker
     Public DGV_Warehouse_Inventory As New KryptonDataGridView
     Dim dgv_bs As New BindingSource
+    Dim supplier_bs As New BindingSource
+    Dim costhead_bs As New BindingSource
+    Dim typecolor_bs As New BindingSource
+    Dim articleno_bs As New BindingSource
+    Dim header_bs As New BindingSource
 
-    Dim todo, searchstring As String
+    Dim cbox_bs As New BindingSource
+
+    Dim todo, todo_mode, searchstring, stock_cols As String
+    Dim cbox_obj As Object
+    Dim ctr_todo As Integer
+    Dim stocks_cols As String() = {"SUPPLIER", "COSTHEAD", "TYPECOLOR", "ARTICLENO", "HEADER"}
     Private Sub Reset_here()
-        Frm_Pnl.Enabled = True
-        Loading_PB.SendToBack()
+        DGV_Warehouse_Inventory.Enabled = True
+        Loading_PB.Visible = False
+        todo_mode = ""
+        ctr_todo = 0
     End Sub
     Private Sub Start_BGW()
         Try
             If BGW.IsBusy <> True Then
-                Frm_Pnl.Enabled = False
-                Loading_PB.BringToFront()
+                DGV_Warehouse_Inventory.Enabled = False
+                Loading_PB.Visible = True
                 BGW.RunWorkerAsync()
             Else
                 MetroMessageBox.Show(Me, "Please Wait!", "Loading", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -37,6 +49,7 @@ Public Class WarehouseInvFrm
         DGV_Warehouse_Inventory.DataSource = dgv_bs
 
         searchstring = ""
+        'todo_mode = "onload"
         todo = "Load_Warehouse"
         Start_BGW()
     End Sub
@@ -45,7 +58,11 @@ Public Class WarehouseInvFrm
         Try
             Select Case todo
                 Case "Load_Warehouse"
-                    Warehouse_Inv_STP("warehouse_inv_stp", todo, searchstring)
+                    Warehouse_Inv_STP("warehouse_inv_stp", todo, "%" & searchstring & "%")
+                    BGW.ReportProgress(0)
+
+                Case "Load_ComboBoxData"
+                    Warehouse_Inv_STP("warehouse_inv_stp", todo,, stock_cols)
                     BGW.ReportProgress(0)
             End Select
         Catch ex As SqlException
@@ -57,24 +74,31 @@ Public Class WarehouseInvFrm
             Catch ex2 As Exception
                 KMDIPrompts(Me, "DotNetError", ex2.Message, ex2.StackTrace)
                 BGW.CancelAsync()
-                Exit Sub
             End Try
         Catch ex As Exception
             BGW.CancelAsync()
             KMDIPrompts(Me, "DotNetError", ex.Message, ex.StackTrace, Nothing, True)
-            Exit Sub
         End Try
+        If BGW.CancellationPending = True Then
+            e.Cancel = True
+        End If
     End Sub
 
     Private Sub BGW_ProgressChanged(sender As Object, e As ProgressChangedEventArgs)
         Try
             Select Case todo
                 Case "Load_Warehouse"
-                    If Not Frm_Pnl.Controls.Contains(DGV_Warehouse_Inventory) Then
+                    If Not Frm_Split.Panel1.Controls.Contains(DGV_Warehouse_Inventory) Then
                         DGV_Properties(DGV_Warehouse_Inventory, "DGV_Warehouse_Inventory")
                         AddHandler DGV_Warehouse_Inventory.RowPostPaint, AddressOf dgv_rowpostpaint
-                        Frm_Pnl.Controls.Add(DGV_Warehouse_Inventory)
+                        AddHandler DGV_Warehouse_Inventory.CellMouseClick, AddressOf dgv_cellmouseclick
+                        Frm_Split.Panel1.Controls.Add(DGV_Warehouse_Inventory)
                     End If
+
+                Case "Load_ComboBoxData"
+                    cbox_bs = New BindingSource
+                    cbox_bs.DataSource = sqlDataSet
+                    cbox_bs.DataMember = todo
             End Select
         Catch ex As Exception
             Reset_here()
@@ -87,6 +111,7 @@ Public Class WarehouseInvFrm
         Try
             If e.Error IsNot Nothing Or e.Cancelled = True Then
                 'If BackgroundWorker Then terminated due To Error
+                Reset_here()
             Else
                 If sql_Transaction_result = "Committed" Then
                     Select Case todo
@@ -99,17 +124,12 @@ Public Class WarehouseInvFrm
                                 .AllowUserToOrderColumns = False
                                 .Select()
                                 .Columns("Row_Status").Visible = False
-                                'For i = 0 To .Columns.Count - 1
-                                '    If .Columns(i).HeaderText.Contains("_") Then
-                                '        .Columns(i).Visible = False
-                                '    End If
-                                '    .Columns(i).SortMode = DataGridViewColumnSortMode.NotSortable
-                                'Next
-                                '.Columns("BRAND").Frozen = True
-                                '.Columns("DATE PURCHASED").DefaultCellStyle.Format = "MMM. dd, yyyy"
-                                '.Columns("MARKET PRICE").DefaultCellStyle.Format = "N2"
-                                '.Columns("PURCHASED PRICE").DefaultCellStyle.Format = "N2"
-                                '.Columns("DISCOUNT").DefaultCellStyle.Format = "N2"
+                                .Columns("STOCKNO").Visible = False
+                                .Columns("QTY").DefaultCellStyle.Format = "N2"
+                                .Columns("MINIMUM").DefaultCellStyle.Format = "N2"
+                                .Columns("UNITPRICE").DefaultCellStyle.Format = "N2"
+                                .Columns("NETAMOUNT").DefaultCellStyle.Format = "N2"
+                                .Columns("UFACTOR").DefaultCellStyle.Format = "N2"
                                 .DefaultCellStyle.BackColor = Color.White
                                 .RowsDefaultCellStyle.Font = New Font("Segoe UI", 10.0!, FontStyle.Regular)
                                 .AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke
@@ -118,7 +138,33 @@ Public Class WarehouseInvFrm
                                 .MultiSelect = True
                                 .ClearSelection()
                             End With
-                            Reset_here()
+                            If todo_mode <> "" Then
+                                ctr_todo += 1
+                            Else
+                                Reset_here()
+                            End If
+
+                        Case "Load_ComboBoxData"
+                            cbox_obj.DataSource = cbox_bs
+                            cbox_obj.DisplayMember = stock_cols
+
+                            If todo_mode <> "" Then
+                                ctr_todo += 1
+                            Else
+                                Reset_here()
+                            End If
+                    End Select
+
+                    Select Case todo_mode
+                        Case "onload"
+                            Select Case ctr_todo
+                                Case 1
+                                    todo = "Load_ComboBoxData"
+                                    Start_BGW()
+                                Case 2
+                                    Reset_here()
+
+                            End Select
                     End Select
                 End If
             End If
@@ -133,12 +179,132 @@ Public Class WarehouseInvFrm
         rowpostpaint(sender, e)
     End Sub
 
+    Private Sub dgv_cellmouseclick(sender As Object, e As DataGridViewCellMouseEventArgs)
+        Try
+            If e.Button = MouseButtons.Right AndAlso BGW.IsBusy <> True Then
+                sender.Rows(e.RowIndex).Selected = True
+                If DGV_Warehouse_Inventory.SelectedRows.Count > 1 Then
+                    UpdateToolStripMenuItem.Visible = False
+                Else
+                    UpdateToolStripMenuItem.Visible = True
+                End If
+                Inv_Cmenu.Show()
+                Inv_Cmenu.Location = New Point(MousePosition.X, MousePosition.Y)
+            End If
+        Catch ex As Exception
+            KMDIPrompts(Me, "DotNetError", ex.Message, ex.StackTrace, Nothing, True)
+        End Try
+    End Sub
+
     Private Sub WarehouseInvFrm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         MainFrm.InventoryToolStripMenuItem.Checked = False
     End Sub
 
-    Private Sub WarehouseInvFrm_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
-        Loading_PB.Location = New Point((Width - Loading_PB.Width) / 2, (Height - Loading_PB.Height) / 2)
+    Private Sub TransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddToolStripMenuItem.Click, UpdateToolStripMenuItem.Click
+        'Dim invItem As Form = WarehouseItemFrm
+        'invItem.MdiParent = MainFrm
+        'invItem.Show()
+        WarehouseItemFrm.ShowDialog()
+    End Sub
+
+    Private Sub Tbox_Leave(sender As Object, e As EventArgs) Handles UnitPrice_Tbox.Leave, UFactor_Tbox.Leave, Qty_Tbox.Leave, Min_Tbox.Leave
+        If Not IsNumeric(sender.text) Then
+            KMDIPrompts(Me, "UserWarning",,,, True, True, sender.Tag & " must be a valid number", False)
+            sender.Focus()
+        End If
+    End Sub
+
+    Dim stockno As Integer
+
+    Private Sub WarehouseInvFrm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Try
+            If e.KeyCode = Keys.F1 Then
+                Supplier_Cbox.Focus()
+                Mode_Lbl.Text = "New"
+                Mode_Lbl.ForeColor = Color.DarkSlateBlue
+                Qty_Tbox.BackColor = SystemColors.Window
+                Qty_Tbox.Enabled = True
+
+            ElseIf e.KeyCode = Keys.F2 Then
+                If DGV_Warehouse_Inventory.SelectedRows.Count = 1 Then
+                    Dim items As DataGridViewSelectedRowCollection = DGV_Warehouse_Inventory.SelectedRows
+                    stockno = items(0).Cells("STOCKNO").Value
+                    Supplier_Cbox.Text = items(0).Cells("SUPPLIER").Value.ToString
+                    Costhead_Cbox.Text = items(0).Cells("COSTHEAD").Value.ToString
+                    TypeColor_Cbox.Text = items(0).Cells("TYPECOLOR").Value.ToString
+                    ArticleNo_Cbox.Text = items(0).Cells("ARTICLENO").Value.ToString
+                    Desc_Tbox.Text = items(0).Cells("DESCRIPTION").Value.ToString
+                    Qty_Tbox.Text = items(0).Cells("QTY").Value.ToString
+                    Min_Tbox.Text = items(0).Cells("MINIMUM").Value.ToString
+                    Unit_Tbox.Text = items(0).Cells("UNIT").Value.ToString
+                    UFactor_Tbox.Text = items(0).Cells("UFACTOR").Value.ToString
+                    Monetary_Tbox.Text = items(0).Cells("MONETARY").Value.ToString
+                    UnitPrice_Tbox.Text = items(0).Cells("UNITPRICE").Value.ToString
+                    Location_Tbox.Text = items(0).Cells("LOCATION").Value.ToString
+                    Header_Cbox.Text = items(0).Cells("HEADER").Value.ToString
+
+                    Supplier_Cbox.Focus()
+                    Mode_Lbl.Text = "Edit " & Desc_Tbox.Text
+                    Mode_Lbl.ForeColor = Color.Maroon
+                    Qty_Tbox.BackColor = Color.Silver
+                    Qty_Tbox.Enabled = False
+                Else
+                    KMDIPrompts(Me, "UserWarning",,,, True, True, "Select one(1) item only.", False)
+                End If
+
+            ElseIf e.KeyCode = Keys.F3 Then
+
+            ElseIf e.KeyCode = Keys.F4 Then
+                For Each ctrl In Frm_Split.Panel2.Controls
+                    If ctrl.GetType Is GetType(ComboBox) Then
+                        ctrl.Text = ""
+                    ElseIf ctrl.GetType Is GetType(TextBox) Then
+                        If ctrl.Tag <> "" Then
+                            ctrl.Text = "0"
+                        Else
+                            ctrl.Clear()
+                        End If
+                    End If
+                Next
+
+            ElseIf e.KeyCode = Keys.F5 Then
+                Search_Tbox.Clear
+                searchstring = ""
+                todo = "Load_Warehouse"
+                Start_BGW()
+
+            End If
+        Catch ex As Exception
+            KMDIPrompts(Me, "DotNetError", ex.Message, ex.StackTrace, Nothing, True)
+        End Try
+    End Sub
+
+    Private Sub Search_Tbox_ButtonClick(sender As Object, e As EventArgs) Handles Search_Tbox.ButtonClick
+        searchstring = Trim(Search_Tbox.Text)
+        todo = "Load_Warehouse"
+        Start_BGW()
+    End Sub
+
+    Private Sub Cbox_Enter(sender As Object, e As EventArgs) Handles TypeColor_Cbox.Enter,
+                                                                     Supplier_Cbox.Enter,
+                                                                     Header_Cbox.Enter,
+                                                                     Costhead_Cbox.Enter,
+                                                                     ArticleNo_Cbox.Enter
+        If sender.DataSource Is Nothing Then
+            cbox_obj = sender
+            stock_cols = sender.Tag
+            todo = "Load_ComboBoxData"
+            Start_BGW()
+        End If
+    End Sub
+
+    Private Sub Search_Tbox_KeyDown(sender As Object, e As KeyEventArgs) Handles Search_Tbox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Search_Tbox.CustomButton.PerformClick()
+        End If
+    End Sub
+    Private Sub Frm_Split_Panel1_SizeChanged(sender As Object, e As EventArgs) Handles Frm_Split.Panel1.SizeChanged
+        Loading_PB.Location = New Point((sender.Width - Loading_PB.Width) / 2, (sender.Height - Loading_PB.Height) / 2)
     End Sub
 
 End Class

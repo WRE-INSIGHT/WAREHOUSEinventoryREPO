@@ -11,6 +11,7 @@
         If InventoryToolStripMenuItem.Checked = True Then
             Dim inv As Form = WarehouseInvFrm
             inv.MdiParent = Me
+            inv.WindowState = FormWindowState.Maximized
             inv.Show()
         Else
             WarehouseInvFrm.Close()

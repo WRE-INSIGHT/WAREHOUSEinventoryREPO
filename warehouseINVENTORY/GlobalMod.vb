@@ -85,7 +85,7 @@ Module GlobalMod
                         Select Case CustomPrompt
                             Case True
                                 QuestionPromptAnswer = MetroMessageBox.Show(FormName, PromptContent, "Warning",
-                                                                    Buttons, MessageBoxIcon.Warning)
+                                                                            Buttons, MessageBoxIcon.Warning)
                             Case False
                                 MetroMessageBox.Show(FormName, "Press F5 to refresh", "Internal error",
                                                                MessageBoxButtons.OK, MessageBoxIcon.Warning)

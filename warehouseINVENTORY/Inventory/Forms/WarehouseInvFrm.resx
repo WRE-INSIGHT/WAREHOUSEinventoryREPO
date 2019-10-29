@@ -117,10 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>Hotkeys
+
+*F1             -   Add new item (Move Cursor)
+*F2             -   Update item (Move Cursor)
+*F3             -   Add quantity to item
+*F4             -   Clear
+*F5             -   Refresh
+*Del           -   Delete item
+*(Ctrl + S) -   Save</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="resource.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMpJREFUOE/N
+        0j/rQVEcx/GLpBgk9BvNSDaPwWSx2GQ3/J6BWAwmk8EgMZF/xcBzU97f8026Hee4ZfGuV32OurfbvQJP
+        acR1Rq+IKU5YYoMdmvhYFVfUzemVPMkYI3NylMINOXN63wBtnXY9dHQ6S+Ki026NjE5vM/zpDCcvK0pD
+        lHWGm6Og05t8mazOcC3863QmF+512sVwRMWc7OQPtULDnBzlcYZ8Efmsz2qQm9/Rlx98JdCFvNQtDpig
+        BLk40k18/dZNFjq/KggeA2odMdIp9vcAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="Inv_Cmenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAMAQAAAAAAAAAAAAAAAAAAAAA

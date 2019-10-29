@@ -19,3 +19,4 @@ C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\De
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.MainFrm.resources
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.WarehouseInvFrm.resources
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.WarehouseItemFrm.resources
+C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbprojResolveAssemblyReference.cache

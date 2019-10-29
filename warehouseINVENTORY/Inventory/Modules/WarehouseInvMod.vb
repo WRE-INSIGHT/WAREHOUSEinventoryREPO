@@ -4,10 +4,11 @@ Module WarehouseInvMod
 
     Public Sub Warehouse_Inv_STP(ByVal StoredProcedureName As String,
                                  ByVal dsTbl_Command As String,
-                                 Optional SearchString As String = "")
+                                 Optional SearchString As String = "",
+                                 Optional cols As String = "")
         sqlDataAdapter = New SqlDataAdapter
         sqlBindingSource = New BindingSource
-        sqlDataSet = New DataSet
+        'sqlDataSet = New DataSet
         If sqlDataSet.Tables.Contains(dsTbl_Command) Then
             sqlDataSet.Tables(dsTbl_Command).Clear()
         End If
@@ -21,16 +22,20 @@ Module WarehouseInvMod
                 sqlCommand.CommandType = CommandType.StoredProcedure
                 sqlCommand.Parameters.Add("@todo", SqlDbType.VarChar).Value = dsTbl_Command
                 sqlCommand.Parameters.Add("@SearchString", SqlDbType.VarChar).Value = SearchString
+                sqlCommand.Parameters.Add("@Cols", SqlDbType.VarChar).Value = cols
                 sqlCommand.ExecuteNonQuery()
                 transaction.Commit()
 
                 sql_Transaction_result = "Committed"
 
-                If dsTbl_Command.Contains("Trans") = False And dsTbl_Command.Contains("Print") = False Then
-                    SqlDataAdapter.SelectCommand = sqlCommand
-                    SqlDataAdapter.Fill(sqlDataSet, dsTbl_Command)
+                If dsTbl_Command.Contains("Trans") = False And
+                    dsTbl_Command.Contains("Print") = False Then
+
+                    sqlDataAdapter.SelectCommand = sqlCommand
+                    sqlDataAdapter.Fill(sqlDataSet, dsTbl_Command)
                     sqlBindingSource.DataSource = sqlDataSet
                     sqlBindingSource.DataMember = dsTbl_Command
+
                     'ElseIf dsTbl_Command.Contains("Print") = True Then
                     '    If dsTbl_Command = "PrintER_Items" Then
                     '        SqlDataAdapter.SelectCommand = sqlCommand
