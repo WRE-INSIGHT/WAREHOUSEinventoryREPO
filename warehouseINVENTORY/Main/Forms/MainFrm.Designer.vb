@@ -29,7 +29,6 @@ Partial Class MainFrm
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Main_MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -64,7 +63,7 @@ Partial Class MainFrm
         '
         Me.SaveToolStripMenuItem.Image = Global.warehouseINVENTORY.My.Resources.Resources.save_48px
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'AccountsToolStripMenuItem
@@ -81,22 +80,12 @@ Partial Class MainFrm
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(387, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Label1"
-        '
         'MainFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
         Me.ClientSize = New System.Drawing.Size(784, 461)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Main_MenuStrip)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
@@ -118,5 +107,4 @@ Partial Class MainFrm
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Label1 As Label
 End Class
