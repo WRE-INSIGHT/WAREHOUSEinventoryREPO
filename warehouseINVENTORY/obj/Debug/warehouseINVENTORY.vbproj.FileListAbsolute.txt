@@ -1,2 +1,12 @@
 C:\Users\kmdim\Documents\Visual Studio 2015\Projects\warehouseINVENTORY\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe.config
 C:\Users\kmdie\Documents\GitHub\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe.config
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe.config
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.exe
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.pdb
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\bin\Debug\warehouseINVENTORY.xml
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.LoginFrm.resources
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.Resources.resources
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.vbproj.GenerateResource.Cache
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.exe
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.xml
+C:\Users\kmdim\Desktop\warehouserepo\WAREHOUSEinventoryREPO\warehouseINVENTORY\obj\Debug\warehouseINVENTORY.pdb
