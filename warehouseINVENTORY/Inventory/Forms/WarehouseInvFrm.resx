@@ -126,7 +126,7 @@
 *F4             -   Clear
 *F5             -   Refresh
 *Del           -   Delete item
-*(Ctrl + S) -   Save</value>
+*Menu &gt; Warehouse Inventory &gt; Save (Ctrl + S) - Save</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="resource.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

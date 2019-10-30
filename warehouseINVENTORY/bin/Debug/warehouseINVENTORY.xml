@@ -52,6 +52,11 @@ warehouseINVENTORY
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:warehouseINVENTORY.My.Resources.Resources.save_48px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:warehouseINVENTORY.My.Resources.Resources.search_filled_100px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_full_warehouse.ico" />
+    <None Include="Resources\save_48px.png" />
     <None Include="Resources\search_filled_100px.png" />
     <None Include="Resources\icons8_warehouse_1.ico" />
     <None Include="Resources\stocks_48px.png" />

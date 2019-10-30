@@ -5,10 +5,24 @@ Module WarehouseInvMod
     Public Sub Warehouse_Inv_STP(ByVal StoredProcedureName As String,
                                  ByVal dsTbl_Command As String,
                                  Optional SearchString As String = "",
-                                 Optional cols As String = "")
+                                 Optional cols As String = "",
+                                 Optional supplier As String = "",
+                                 Optional costhead As String = "",
+                                 Optional typecolor As String = "",
+                                 Optional articleno As String = "",
+                                 Optional desc As String = "",
+                                 Optional unit As String = "",
+                                 Optional monetary As String = "",
+                                 Optional location_inv As String = "",
+                                 Optional header As String = "",
+                                 Optional qty As Integer = 0,
+                                 Optional min As Integer = 0,
+                                 Optional ufactor As Decimal = 0.0D,
+                                 Optional unitprice As Decimal = 0.0D,
+                                 Optional stockno As Integer = 0)
         sqlDataAdapter = New SqlDataAdapter
         sqlBindingSource = New BindingSource
-        'sqlDataSet = New DataSet
+        sqlDataSet = New DataSet
         If sqlDataSet.Tables.Contains(dsTbl_Command) Then
             sqlDataSet.Tables(dsTbl_Command).Clear()
         End If
@@ -21,8 +35,27 @@ Module WarehouseInvMod
                 sqlCommand.CommandText = StoredProcedureName
                 sqlCommand.CommandType = CommandType.StoredProcedure
                 sqlCommand.Parameters.Add("@todo", SqlDbType.VarChar).Value = dsTbl_Command
-                sqlCommand.Parameters.Add("@SearchString", SqlDbType.VarChar).Value = SearchString
                 sqlCommand.Parameters.Add("@Cols", SqlDbType.VarChar).Value = cols
+                sqlCommand.Parameters.Add("@SearchString", SqlDbType.VarChar).Value = SearchString
+
+                sqlCommand.Parameters.Add("@supplier", SqlDbType.VarChar).Value = supplier
+                sqlCommand.Parameters.Add("@costhead", SqlDbType.VarChar).Value = costhead
+                sqlCommand.Parameters.Add("@typecolor", SqlDbType.VarChar).Value = typecolor
+                sqlCommand.Parameters.Add("@articleno", SqlDbType.VarChar).Value = articleno
+                sqlCommand.Parameters.Add("@desc", SqlDbType.VarChar).Value = desc
+                sqlCommand.Parameters.Add("@unit", SqlDbType.VarChar).Value = unit
+                sqlCommand.Parameters.Add("@monetary", SqlDbType.VarChar).Value = monetary
+                sqlCommand.Parameters.Add("@location_inv", SqlDbType.VarChar).Value = location_inv
+                sqlCommand.Parameters.Add("@header", SqlDbType.VarChar).Value = header
+                sqlCommand.Parameters.Add("@inputted", SqlDbType.VarChar).Value = user_fullname
+
+                sqlCommand.Parameters.Add("@qty", SqlDbType.Int).Value = qty
+                sqlCommand.Parameters.Add("@min", SqlDbType.Int).Value = min
+                sqlCommand.Parameters.Add("@ufactor", SqlDbType.Decimal).Value = ufactor
+                sqlCommand.Parameters.Add("@unitprice", SqlDbType.Decimal).Value = unitprice
+
+                sqlCommand.Parameters.Add("@stockno", SqlDbType.Int).Value = stockno
+
                 sqlCommand.ExecuteNonQuery()
                 transaction.Commit()
 

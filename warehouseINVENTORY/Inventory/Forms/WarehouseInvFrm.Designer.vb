@@ -26,8 +26,6 @@ Partial Class WarehouseInvFrm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WarehouseInvFrm))
         Me.Frm_Pnl = New System.Windows.Forms.Panel()
         Me.Frm_Split = New System.Windows.Forms.SplitContainer()
-        Me.Loading_PB = New System.Windows.Forms.PictureBox()
-        Me.Search_Tbox = New MetroFramework.Controls.MetroTextBox()
         Me.Header_Cbox = New System.Windows.Forms.ComboBox()
         Me.Location_Tbox = New System.Windows.Forms.TextBox()
         Me.UnitPrice_Tbox = New System.Windows.Forms.TextBox()
@@ -53,22 +51,24 @@ Partial Class WarehouseInvFrm
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
-        Me.Mode_Lbl = New MetroFramework.Controls.MetroLabel()
         Me.Supplier_Cbox = New System.Windows.Forms.ComboBox()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Mode_Lbl = New MetroFramework.Controls.MetroLabel()
+        Me.Search_Tbox = New MetroFramework.Controls.MetroTextBox()
         Me.Inv_Cmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Loading_PB = New System.Windows.Forms.PictureBox()
         Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Frm_Pnl.SuspendLayout()
         CType(Me.Frm_Split, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Frm_Split.Panel1.SuspendLayout()
         Me.Frm_Split.Panel2.SuspendLayout()
         Me.Frm_Split.SuspendLayout()
-        CType(Me.Loading_PB, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Inv_Cmenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Inv_Cmenu.SuspendLayout()
+        CType(Me.Loading_PB, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Frm_Pnl
@@ -129,53 +129,6 @@ Partial Class WarehouseInvFrm
         Me.Frm_Split.Size = New System.Drawing.Size(784, 730)
         Me.Frm_Split.SplitterDistance = 455
         Me.Frm_Split.TabIndex = 0
-        '
-        'Loading_PB
-        '
-        Me.Loading_PB.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.Loading_PB.Image = Global.warehouseINVENTORY.My.Resources.Resources.loading_image2
-        Me.Loading_PB.Location = New System.Drawing.Point(433, 200)
-        Me.Loading_PB.Name = "Loading_PB"
-        Me.Loading_PB.Size = New System.Drawing.Size(73, 55)
-        Me.Loading_PB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.Loading_PB.TabIndex = 19
-        Me.Loading_PB.TabStop = False
-        '
-        'Search_Tbox
-        '
-        '
-        '
-        '
-        Me.Search_Tbox.CustomButton.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Search_Tbox.CustomButton.Image = CType(resources.GetObject("resource.Image"), System.Drawing.Image)
-        Me.Search_Tbox.CustomButton.Location = New System.Drawing.Point(273, 1)
-        Me.Search_Tbox.CustomButton.Name = ""
-        Me.Search_Tbox.CustomButton.Size = New System.Drawing.Size(25, 25)
-        Me.Search_Tbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
-        Me.Search_Tbox.CustomButton.TabIndex = 1
-        Me.Search_Tbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.Search_Tbox.CustomButton.UseSelectable = True
-        Me.Search_Tbox.FontSize = MetroFramework.MetroTextBoxSize.Medium
-        Me.Search_Tbox.ForeColor = System.Drawing.Color.Black
-        Me.Search_Tbox.Lines = New String(-1) {}
-        Me.Search_Tbox.Location = New System.Drawing.Point(514, 4)
-        Me.Search_Tbox.MaxLength = 32767
-        Me.Search_Tbox.Name = "Search_Tbox"
-        Me.Search_Tbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Search_Tbox.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.Search_Tbox.SelectedText = ""
-        Me.Search_Tbox.SelectionLength = 0
-        Me.Search_Tbox.SelectionStart = 0
-        Me.Search_Tbox.ShowButton = True
-        Me.Search_Tbox.ShowClearButton = True
-        Me.Search_Tbox.Size = New System.Drawing.Size(299, 27)
-        Me.Search_Tbox.Style = MetroFramework.MetroColorStyle.Silver
-        Me.Search_Tbox.TabIndex = 831
-        Me.Search_Tbox.UseCustomForeColor = True
-        Me.Search_Tbox.UseSelectable = True
-        Me.Search_Tbox.WaterMark = "Search here"
-        Me.Search_Tbox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
-        Me.Search_Tbox.WaterMarkFont = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'Header_Cbox
         '
@@ -441,19 +394,6 @@ Partial Class WarehouseInvFrm
         Me.MetroLabel1.Text = "Supplier"
         Me.MetroLabel1.UseCustomBackColor = True
         '
-        'Mode_Lbl
-        '
-        Me.Mode_Lbl.FontSize = MetroFramework.MetroLabelSize.Tall
-        Me.Mode_Lbl.FontWeight = MetroFramework.MetroLabelWeight.Bold
-        Me.Mode_Lbl.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Mode_Lbl.Location = New System.Drawing.Point(8, 4)
-        Me.Mode_Lbl.Name = "Mode_Lbl"
-        Me.Mode_Lbl.Size = New System.Drawing.Size(499, 25)
-        Me.Mode_Lbl.TabIndex = 1
-        Me.Mode_Lbl.Text = "New"
-        Me.Mode_Lbl.UseCustomBackColor = True
-        Me.Mode_Lbl.UseCustomForeColor = True
-        '
         'Supplier_Cbox
         '
         Me.Supplier_Cbox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
@@ -477,11 +417,81 @@ Partial Class WarehouseInvFrm
         Me.RichTextBox1.TabIndex = 27
         Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Mode_Lbl)
+        Me.Panel1.Controls.Add(Me.Search_Tbox)
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(822, 36)
+        Me.Panel1.TabIndex = 832
+        '
+        'Mode_Lbl
+        '
+        Me.Mode_Lbl.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.Mode_Lbl.FontWeight = MetroFramework.MetroLabelWeight.Bold
+        Me.Mode_Lbl.ForeColor = System.Drawing.Color.DarkSlateGray
+        Me.Mode_Lbl.Location = New System.Drawing.Point(8, 4)
+        Me.Mode_Lbl.Name = "Mode_Lbl"
+        Me.Mode_Lbl.Size = New System.Drawing.Size(499, 25)
+        Me.Mode_Lbl.TabIndex = 1
+        Me.Mode_Lbl.Text = "New"
+        Me.Mode_Lbl.UseCustomBackColor = True
+        Me.Mode_Lbl.UseCustomForeColor = True
+        '
+        'Search_Tbox
+        '
+        '
+        '
+        '
+        Me.Search_Tbox.CustomButton.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Search_Tbox.CustomButton.Image = CType(resources.GetObject("resource.Image"), System.Drawing.Image)
+        Me.Search_Tbox.CustomButton.Location = New System.Drawing.Point(273, 1)
+        Me.Search_Tbox.CustomButton.Name = ""
+        Me.Search_Tbox.CustomButton.Size = New System.Drawing.Size(25, 25)
+        Me.Search_Tbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.Search_Tbox.CustomButton.TabIndex = 1
+        Me.Search_Tbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.Search_Tbox.CustomButton.UseSelectable = True
+        Me.Search_Tbox.FontSize = MetroFramework.MetroTextBoxSize.Medium
+        Me.Search_Tbox.ForeColor = System.Drawing.Color.Black
+        Me.Search_Tbox.Lines = New String(-1) {}
+        Me.Search_Tbox.Location = New System.Drawing.Point(514, 4)
+        Me.Search_Tbox.MaxLength = 32767
+        Me.Search_Tbox.Name = "Search_Tbox"
+        Me.Search_Tbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Search_Tbox.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.Search_Tbox.SelectedText = ""
+        Me.Search_Tbox.SelectionLength = 0
+        Me.Search_Tbox.SelectionStart = 0
+        Me.Search_Tbox.ShowButton = True
+        Me.Search_Tbox.ShowClearButton = True
+        Me.Search_Tbox.Size = New System.Drawing.Size(299, 27)
+        Me.Search_Tbox.Style = MetroFramework.MetroColorStyle.Silver
+        Me.Search_Tbox.TabIndex = 831
+        Me.Search_Tbox.UseCustomForeColor = True
+        Me.Search_Tbox.UseSelectable = True
+        Me.Search_Tbox.WaterMark = "Search here"
+        Me.Search_Tbox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.Search_Tbox.WaterMarkFont = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        '
         'Inv_Cmenu
         '
         Me.Inv_Cmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.UpdateToolStripMenuItem, Me.DeleteToolStripMenuItem})
         Me.Inv_Cmenu.Name = "Inv_Cmenu"
         Me.Inv_Cmenu.Size = New System.Drawing.Size(113, 70)
+        '
+        'Loading_PB
+        '
+        Me.Loading_PB.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
+        Me.Loading_PB.Image = Global.warehouseINVENTORY.My.Resources.Resources.loading_image2
+        Me.Loading_PB.Location = New System.Drawing.Point(433, 200)
+        Me.Loading_PB.Name = "Loading_PB"
+        Me.Loading_PB.Size = New System.Drawing.Size(73, 55)
+        Me.Loading_PB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.Loading_PB.TabIndex = 19
+        Me.Loading_PB.TabStop = False
         '
         'AddToolStripMenuItem
         '
@@ -504,16 +514,6 @@ Partial Class WarehouseInvFrm
         Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
-        'Panel1
-        '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.Mode_Lbl)
-        Me.Panel1.Controls.Add(Me.Search_Tbox)
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(822, 36)
-        Me.Panel1.TabIndex = 832
-        '
         'WarehouseInvFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -531,9 +531,9 @@ Partial Class WarehouseInvFrm
         Me.Frm_Split.Panel2.PerformLayout()
         CType(Me.Frm_Split, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Frm_Split.ResumeLayout(False)
-        CType(Me.Loading_PB, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Inv_Cmenu.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        Me.Inv_Cmenu.ResumeLayout(False)
+        CType(Me.Loading_PB, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
